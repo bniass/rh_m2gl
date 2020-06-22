@@ -1,0 +1,31 @@
+<button class='btn btn-info'>ADD</button>
+<br/>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">MATRICULE</th>
+        <th scope="col">PRENOM</th>
+        <th scope="col">NOM</th>
+        <th scope="col">TEL</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">SERVICE</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let med of medecins'>
+        <td scope="col">#</td>
+         <td scope="col">{{med.matricule}}</td>
+        <td scope="col">{{med.prenom}}</td>
+        <td scope="col">{{med.nom}}</td>
+        <td scope="col">{{med.tel}}</td>
+        <td scope="col">{{med.email}}</td>
+        <td scope="col">{{med.service.libelle}}</td>
+        <td scope="col">
+            <button type="button" (click)="editMedecin(med)" class='btn btn-info'>EDIT</button>
+            <button (click)="remove(med)" class='btn btn-info'>REMOVE</button>
+        </td>
+    </tr>
+    </tbody>
+  </table>

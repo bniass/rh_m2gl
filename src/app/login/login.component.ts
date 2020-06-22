@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../login.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
  
   data: any;
 
-  constructor(private loginService : LoginService) { 
+  constructor(private loginService : LoginService, private router: Router) { 
     this.data = {
       username: '',
       password: ''
@@ -18,15 +19,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
   logon(){
-    //console.log(this.data);
     this.loginService.loginRequest(this.data)
     .subscribe(res => {
       console.log(res);
       this.loginService.saveToken(res.body);
+      if(res.body.authorities[0].authority === 'ROLE_MEDECIN'){
+          this.router.navigate(['medecin']);
+      }
     },
     err => {
       console.log(err);
