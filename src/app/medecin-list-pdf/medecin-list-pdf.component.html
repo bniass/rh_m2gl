@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+    <div class="col-md-9" id="htmlData" #htmlData>
+    <h2>Liste des médecins</h2>
+    <table id="table" #table class="table table-bordered">
+        <thead>
+        <tr class="table-primary"> 
+                <th>MATRICULE</th>
+                <th>NOM</th>
+                <th>PRENOM</th>
+                <th>TELEPHONE</th>
+                <th>EMAIL</th>
+                <th>SALAIRE</th>
+        </tr>
+        </thead> 
+        <tbody>
+            <tr *ngFor='let d of medecins'> 
+                <td>{{d.matricule}}</td>
+                <td>{{d.nom}}</td>
+                <td>{{d.prenom}}</td>
+                <td>{{d.tel}}</td>
+                <td>{{d.email}}</td>
+                <td>{{d.salaire}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <button (click)="openPDF()" class='btn btn-info'>Exporter</button>
+    </div>
+    

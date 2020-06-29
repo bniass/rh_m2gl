@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { MedecinComponent } from './medecin/medecin.component';
 import { ModalEditMedecinComponent } from './modal-edit-medecin/modal-edit-medecin.component';
 import { ModalConfirmDialogComponent } from './modal-confirm-dialog/modal-confirm-dialog.component';
+import { ModalCreateMedecinComponent } from './modal-create-medecin/modal-create-medecin.component';
+import { MedecinListPdfComponent } from './medecin-list-pdf/medecin-list-pdf.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ModalConfirmDialogComponent } from './modal-confirm-dialog/modal-confir
     PageNotFoundComponent,
     MedecinComponent,
     ModalEditMedecinComponent,
-    ModalConfirmDialogComponent
+    ModalConfirmDialogComponent,
+    ModalCreateMedecinComponent,
+    MedecinListPdfComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { MedecinListPdfComponent } from './medecin-list-pdf/medecin-list-pdf.component';
 import { MedecinComponent } from './medecin/medecin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
@@ -8,6 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'medecin', component: MedecinComponent },
+  { path: 'print', component: MedecinListPdfComponent },
   { path: 'login', component: LoginComponent },
   { path: 'accessdenied', component: AccessDeniedComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },

@@ -1,3 +1,4 @@
+import { ModalCreateMedecinComponent } from './../modal-create-medecin/modal-create-medecin.component';
 import { ModalConfirmDialogComponent } from './../modal-confirm-dialog/modal-confirm-dialog.component';
 import { ModalEditMedecinComponent } from './../modal-edit-medecin/modal-edit-medecin.component';
 import { MedecinService } from './../medecin.service';
@@ -53,6 +54,30 @@ export class MedecinComponent implements OnInit {
         this.medecins.splice(pos, 1);
       },
       err=>{
+        console.log(err);
+      });
+    });
+  }
+
+  clickEventHandler(){
+    const modalRef = this.modalService.open(ModalCreateMedecinComponent);
+    modalRef.componentInstance.passEntry.subscribe((receivedData) => {
+      
+      const service = {id: receivedData.service, libelle: ''};
+      let specialites = [];
+      receivedData.specialites.forEach(element => {
+        specialites.push({
+          id: element, libelle: ''
+        })
+      });
+      receivedData.specialites = specialites;
+      receivedData.service = service;
+      console.log(receivedData);
+      this.medecinService.saveOrUpdate(receivedData)
+      .subscribe(res => {
+        this.medecins.push(res);
+      },
+      err => {
         console.log(err);
       });
     });
